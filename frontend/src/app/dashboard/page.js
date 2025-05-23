@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { isAuthenticated } from '../../../utils/auth'
+import PomodoroDial from '../components/pomo-clock/pomo-clock'
 
 export default function DashboardPage() {
   const router = useRouter()
@@ -29,14 +30,16 @@ export default function DashboardPage() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold">Welcome to your dashboard</h1>
-      <button 
+      {/* <button 
         type="button"
         onClick={handleSignOut}
-        className="w-fit bg-blue-600 text-white px-4 py-2 rounded-md w-full hover:bg-blue-700 transition"
+        className="w-fit bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
       >
           signOut
-      </button>
+      </button> */}
+      <div className='w-fit h-auto bg-gray-800 p-5 rounded-md shadow-gray-700 shadow-md hover:shadow-gray-600'>
+        <PomodoroDial/>
+      </div>
     </div>
   )
 }
