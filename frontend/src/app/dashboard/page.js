@@ -37,9 +37,10 @@ export default function DashboardPage() {
       >
           signOut
       </button> */}
-      <div className='w-fit h-auto bg-gray-800 p-5 rounded-md shadow-gray-700 shadow-md hover:shadow-gray-600'>
-        <PomodoroDial/>
+      <div className="w-full sm:w-fit h-auto bg-gray-800 p-4 sm:p-5 rounded-md shadow-black shadow-md hover:shadow-lg mx-auto">
+        <PomodoroDial />
       </div>
+
     </div>
   )
 }

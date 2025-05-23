@@ -46,7 +46,7 @@ const PomodoroTimer = () => {
           key={key}
           isPlaying={isPlaying}
           duration={duration}
-          colors='#1E88E5'
+          colors='#1d4ed8'
           size={180}
         >
           {({ remainingTime }) => {
@@ -63,7 +63,7 @@ const PomodoroTimer = () => {
       <div className="flex gap-4">
           <button
             onClick={toggleTimer}
-            className="bg-red-500 text-white px-6 py-2 rounded-full flex items-center gap-2"
+            className="bg-blue-700 text-white px-6 py-2 rounded-full flex items-center gap-2"
           >
             {isPlaying ? <FaPause /> : <FaPlay />}
             {isPlaying ? 'Pause' : 'Start'}
