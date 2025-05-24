@@ -3,6 +3,7 @@ import {PORT} from './config/env.js';
 import authRouter from './routes/auth.routes.js';
 import connectToDatabase from './database/mongodb.js';
 import sessionRouter from './routes/session.routes.js';
+import documentRouter from './routes/document.routes.js';
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 //Routes
 app.use('/api/v0/auth', authRouter);
 app.use('/api/v0/sessions', sessionRouter);
+app.use('/api/v0/documents', documentRouter)
 
 app.get("/", (req, res) => {
     console.log('Hello world');
