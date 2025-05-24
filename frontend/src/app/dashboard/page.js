@@ -2,10 +2,13 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { isAuthenticated } from '../../../utils/auth'
-import PomodoroDial from '../components/pomo-clock/pomo-clock'
+import PomodoroDial from '../components/pomo-clock/pomo-clock';
+import SessionHistory from '../components/pomo-clock/sessionHistory';
 
 export default function DashboardPage() {
   const router = useRouter()
+
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     if (!isAuthenticated()) {
@@ -39,6 +42,7 @@ export default function DashboardPage() {
       </button> */}
       <div className="w-full sm:w-fit h-auto bg-gray-800 p-4 sm:p-5 rounded-md shadow-black shadow-md hover:shadow-lg mx-auto">
         <PomodoroDial />
+        <SessionHistory token={token}/>
       </div>
 
     </div>
