@@ -8,7 +8,12 @@ const nextConfig = {
                 destination: 'http://localhost:5500/api/v0/:path*',
             },
         ];
-    }
+    },
+    experimental: {
+        serverActions: {
+            bodySizeLimit: '5mb',
+        },
+    },
 };
 
 export default nextConfig;

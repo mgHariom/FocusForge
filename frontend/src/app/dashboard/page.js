@@ -2,8 +2,9 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { isAuthenticated } from '../../../utils/auth'
-import PomodoroDial from '../components/pomo-clock/pomo-clock';
-import SessionHistory from '../components/pomo-clock/sessionHistory';
+import PomodoroDial from '../components/pomo-clock';
+import SessionHistory from '../components/sessionHistory';
+import DocumentUploader from '../components/DocumentUploader';
 
 export default function DashboardPage() {
   const router = useRouter()
@@ -32,19 +33,21 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="p-6">
-      {/* <button 
+    <div className="p-6 flex items-center content-center gap-5">
+      <button 
         type="button"
         onClick={handleSignOut}
         className="w-fit bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
       >
-          signOut
-      </button> */}
+          signout
+      </button>
       <div className="w-full sm:w-fit h-auto bg-gray-800 p-4 sm:p-5 rounded-md shadow-black shadow-md hover:shadow-lg mx-auto">
         <PomodoroDial />
         <SessionHistory token={token}/>
       </div>
-
+      <div className='w-full h-10'>
+        <DocumentUploader/>
+      </div>
     </div>
   )
 }
