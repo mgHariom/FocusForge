@@ -4,6 +4,7 @@ import pdfParse from 'pdf-parse';
 import mammoth from 'mammoth';
 import fs from 'fs';
 import path from 'path';
+import { chunkText } from '../utils/chunkText.js';
 
 const documentRouter = Router();
 const upload = multer({dest: 'uploads/'});
@@ -36,11 +37,14 @@ documentRouter.post('/upload', upload.single('document'), async (req, res) => {
         //Delete uploaded file after extraction
         fs.unlinkSync(file.path);
 
+        //chunking extracted text
+        const chunks = chunkText(extractedText);
+
         //Extracted text
         res.status(200).json({
             success: true,
-            extractedText,
-            message: 'Text extracted successfully',
+            chunks,
+            message: 'Text extracted and chunked successfully',
         });
 
     } catch (error) {
