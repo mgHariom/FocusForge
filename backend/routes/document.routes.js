@@ -45,7 +45,7 @@ documentRouter.post('/upload', upload.single('document'), async (req, res) => {
             const top_k = 3; 
             await storeDocumentChunks(chunks, file.filename);
             // If you have a search function (not a router), call it here:
-             const searchResults = await searchDocumentFunction(query, top_k);
+            //  const searchResults = await searchDocumentFunction(query, top_k);
 
             res.status(200).json({
                 success: true,

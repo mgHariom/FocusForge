@@ -34,13 +34,13 @@ export default function DashboardPage() {
 
   return (
     <div className="p-6 flex items-center content-center gap-5">
-      <button 
+      {/* <button 
         type="button"
         onClick={handleSignOut}
         className="w-fit bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
       >
           signout
-      </button>
+      </button> */}
       <div className="w-full sm:w-fit h-auto bg-gray-800 p-4 sm:p-5 rounded-md shadow-black shadow-md hover:shadow-lg mx-auto">
         <PomodoroDial />
         <SessionHistory token={token}/>
