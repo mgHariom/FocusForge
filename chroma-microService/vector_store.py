@@ -36,7 +36,7 @@ def store_chunks(doc_id: str, chunks: list):
 
     results = collection.get(where={"doc_id":doc_id})
     
-
+    print("stored document succesfully")
     return True
 
 # Load your embedding model and DB
@@ -67,6 +67,7 @@ def search_chunks( query: str, top_k: int = 3):
         print("collection count:", collection.count())
 
         return {
+            "success": True,
             "documents": results["documents"],
             "metadatas": results["metadatas"],
             "ids": results["ids"]
