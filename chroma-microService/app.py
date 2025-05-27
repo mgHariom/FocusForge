@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from vector_store import store_chunks
 from pydantic import BaseModel
 from typing import List
-from vector_search import search_chunks
+from vector_store import search_chunks
 
 app = FastAPI();
 
