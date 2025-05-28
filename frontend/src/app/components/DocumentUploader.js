@@ -38,7 +38,7 @@ export default function DocumentUploader({ onUpload }) {
       body: JSON.stringify({ query }),
     });
     const data = await res.json();
-    setSearchResults(data.summary[0] || data.summary[1]); // Assuming data.summary is an array
+    setSearchResults(data.summary); // Assuming data.summary is an array
   };
 
   return (
