@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 export default function DocumentUploader({ onUpload }) {
   const [file, setFile] = useState(null);
@@ -38,7 +39,9 @@ export default function DocumentUploader({ onUpload }) {
       body: JSON.stringify({ query }),
     });
     const data = await res.json();
+    console.log(data);
     setSearchResults(data.summary); // Assuming data.summary is an array
+    console.log(searchResults);
   };
 
   return (
@@ -46,9 +49,9 @@ export default function DocumentUploader({ onUpload }) {
       {/* Search results section */}
       <div className="bg-gray-700 rounded p-3 min-h-[40px] text-white">
         {searchResults ? (
-          <pre className="whitespace-pre-wrap break-words">
-            {JSON.stringify(searchResults, null, 2)}
-          </pre>
+          <div className="prose max-w-none">
+            <ReactMarkdown>{searchResults}</ReactMarkdown>
+          </div>
         ) : (
           "No search results yet."
         )}
